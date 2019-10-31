@@ -1,63 +1,57 @@
-# Autonomous Driving Challenge
+# Autonomous Driving
 
-![](../videos/images_and_angles.gif)
+![](videos/training_animation_smaller.gif)
 
+Autonomous driving is one of the great technical challenges of our time. There are tons of interesting applications of computer vision to autononmous driving, we'll explore a few of them in this module. 
 
-## Instructions
-Your mission is to train a neural network to steer a car using only image from a single camera. `sample_student.py` contains the basic functions you'll need to modify. First you'll need to create a method to train your neural network:
+## Lectures
+| Order |   Notebook/Slides  | Required Viewing/Reading |  Notes |
+| ----- | ------------------ | ----------------------- | ------------------ |
+| 1 | [How to Drive a Car with a Camera [Part 1]](https://github.com/unccv/autonomous_driving/blob/master/notebooks/How%20to%20Drive%20a%20Car%20with%20a%20Camera%20%5BPart%201%5D.ipynb) | [SDCs Part 1](https://www.youtube.com/watch?v=cExJbbwOfcw&t=26s), [VITS Paper](https://sites.cs.ucsb.edu/~mturk/Papers/ALV.pdf) |  |
+| 2 | [How to Drive a Car with a Camera [Part 2]](https://github.com/unccv/autonomous_driving/blob/master/notebooks/How%20to%20Drive%20a%20Car%20with%20a%20Camera%20%5BPart%202%5D.ipynb) | [SDCs Part 2](https://www.youtube.com/watch?v=H0igiP6Hg1k), [ALVINN Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.830.2188&rep=rep1&type=pdf) | The ALVINN implementation in this notebook should be helpful on your programming challenge!|
 
-````
-def train(path_to_images, csv_file):
-    '''
-    First method you need to complete. 
-    Args: 
-    path_to_images = path to jpg image files
-    csv_file = path and filename to csv file containing frame numbers and steering angles. 
-    
-    Returns: 
-    NN = Trained Neural Network object 
-    '''
- ````
+## Note About Tensorflow
+We'll be using tensorflow to build a neural network in one lecture, but tensorflow (or other deep learning libraries) are not permitted in your programming challenge. 
 
- Your method should return a trained neural network class. An example class (from the Neural Networks module) is included in `sample_student.py`. Your submitted script should also inlcude a `NeuralNetwork()` class - you are free to modify this class or write your own from scratch. You'll also need to create a predict method:
+## Setup 
 
+The Python 3 [Anaconda Distribution](https://www.anaconda.com/download) is the easiest way to get going with the notebooks and code presented here. 
 
-````
-def predict(NN, image_file):
-    '''
-    Second method you need to complete. 
-    Given your trained neural network class, and an image filename, load image, make and return single predicted steering angle in degrees, as a float32. 
-    '''
-````
+(Optional) You may want to create a virtual environment for this repository: 
 
-## Evalution 
-Your code will be evaluated using `evaluate.py`, or a very similar variant. You can use this script locally to ensure you don't burn through your autograder submissions. Performance will be evaluated by comparing your predicted steering angles to human steering angles:
+~~~
+conda create -n autonomous_driving python=3 
+source activate autonomous_driving
+~~~
 
-![](../graphics/RMSE_Equation-01.png)
+You'll need to install the jupyter notebook to run the notebooks:
 
+~~~
+conda install jupyter
 
-## Run Time Limits
-Due to limited compute capacity, your code will only be allowed to run for 10 minutes. Keep this in mind during development! There's lots of training strategies that take way too long, this time limit will force you to find nice fast training strategies (a useful skill, I promise). Finally, you may want to add your own timer to training to ensure you get as many training steps as you can without exceeding the time limit. If you exceed the time limit, your code will be termintated, and your submission will be scored as if your code fialed to run. 
+# You may also want to install nb_conda (Enables some nice things like change virtual environments within the notebook)
+conda install nb_conda
+~~~
 
-## The Data
-Download training data [here](http://www.welchlabs.io/unccv/autonomous_driving/data/training.zip). 
+This repository requires the installation of a few extra packages, you can install them all at once with:
+~~~
+pip install -r requirements.txt
+~~~
 
-## Packages
-For this challenge you are only permitted to use numpy, opencv, tdqm, time, and scipy. Tensorflow and other high level ML tools are not permitted.
+(Optional) [jupyterthemes](https://github.com/dunovank/jupyter-themes) can be nice when presenting notebooks, as it offers some cleaner visual themes than the stock notebook, and makes it easy to adjust the default font size for code, markdown, etc. You can install with pip: 
 
-### Grading 
+~~~
+pip install jupyterthemes
+~~~
 
-| RMSE (degrees)   | Points (10 max)  | 
-| ------------- | ------------- | 
-| RMSE <= 12.5     | 10  | 
-| 12.5 < RMSE <= 15 | 9  |  
-| 15 < RMSE <= 20 | 8  |   
-| 20 < RMSE <= 25 | 7  |   
-| 25 < RMSE <= 30 | 6  |   
-| 30 < RMSE <= 40 | 5  |  
-| RMSE > 40, or code fails to run | 4  |  
+Recommend jupyter them for **presenting** these notebook (type into terminal before launching notebook):
+~~~
+jt -t grade3 -cellw=90% -fs=20 -tfs=20 -ofs=20 -dfs=20
+~~~
 
-
-
+Recommend jupyter them for **viewing** these notebook (type into terminal before launching notebook):
+~~~
+jt -t grade3 -cellw=90% -fs=14 -tfs=14 -ofs=14 -dfs=14
+~~~
 
 
