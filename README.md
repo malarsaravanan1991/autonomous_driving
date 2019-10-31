@@ -1,6 +1,6 @@
 # Autonomous Driving Challenge
 
-![](../videos/images_and_angles.gif)
+![](videos/images_and_angles.gif)
 
 
 ## Instructions
@@ -33,7 +33,7 @@ def predict(NN, image_file):
 ## Evalution 
 Your code will be evaluated using `evaluate.py`, or a very similar variant. You can use this script locally to ensure you don't burn through your autograder submissions. Performance will be evaluated by comparing your predicted steering angles to human steering angles:
 
-![](../graphics/RMSE_Equation-01.png)
+![](graphics/RMSE_Equation-01.png)
 
 
 ## Run Time Limits
